@@ -22,5 +22,5 @@ giving you a project layout to grow into over time.
 # mentions
 Dont forget to check out my project[aatom-angular-snippets](https://github.com/simskij/atom-angular-snippets/) which will save you time during development as well.
 
-# fork
+# forking
 I love forks, issues and all that stuff! If you feel that something should be different to what it is today, start an issue or fork the project and send a pull request with your changes. Just remember to write an explanation to why your way rocks (which it probably does)!
