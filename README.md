@@ -25,7 +25,7 @@ giving you a project layout to grow into over time.
 
 ### mentions
 ------------
-Dont forget to check out my project[aatom-angular-snippets](https://github.com/simskij/atom-angular-snippets/) which will save you time during development as well.
+Dont forget to check out my project [atom-angular-snippets](https://github.com/simskij/atom-angular-snippets/) which will save you time during development as well.
 
 ### forking
 -----------
