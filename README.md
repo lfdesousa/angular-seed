@@ -8,7 +8,7 @@ Includes a gulp file that, if you follow the project directory layout builds a d
 After participating in a couple of pretty heavy angular apps, it became obvious that it's really easy to get lost when it
 comes to structuring your projects folders and files. Angular-seed is an attempt at solving this by creating a barebone that you
 may use to quickly get on track, not having to write boilerplate code for standard gulp actions and project defaults as well as
-giving you a project layout to grow into over time.
+giving you a project layout to grow into over time. Do note, however, that *this is not a project generator and includes close to no prewritten code*, so if that is what you're after - you better look elsewhere. But you're not, right? (cause, you know, where's the fun in that?)
 
 ### requirements
 ----------------
