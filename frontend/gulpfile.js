@@ -1,6 +1,7 @@
-var gulp   = require('gulp');
-var concat = require('gulp-concat');
-var notify = require('gulp-notify');
+var gulp     = require('gulp');
+var concat   = require('gulp-concat');
+var sass     = require('gulp-sass');
+var bulkSass = require('gulp-sass-bulk-import');
 
 gulp.task('default', [
   'app',
@@ -9,7 +10,7 @@ gulp.task('default', [
 
 gulp.task('app', [
   'app-js',
-  'app-css',
+  'app-sass',
   'app-views',
   'app-index'
 ]);
@@ -21,33 +22,30 @@ gulp.task('app-js', function() {
     './src/**/*.js'
   ])
     .pipe(concat('app.js'))
-    .pipe(gulp.dest('./dist/js'))
-    .pipe(notify({message: "APP: JS Build task completed"}));
+    .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('app-css', function() {
+gulp.task('app-sass', function() {
   return gulp.src([
-    './src/app.css'
+    './src/sass/app.scss'
   ])
-    .pipe(concat('app.css'))
-    .pipe(gulp.dest('./dist/css'))
-    .pipe(notify({message: "APP: CSS Build task completed"}));
+    .pipe(bulkSass())
+    .pipe(sass())
+    .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('app-views', function() {
   return gulp.src([
     './src/views/**'
   ])
-    .pipe(gulp.dest('./dist/views'))
-    .pipe(notify({message: "APP: View Build task completed"}));
+    .pipe(gulp.dest('./dist/views'));
 });
 
 gulp.task('app-index', function() {
     return gulp.src([
       './src/index.html'
     ])
-      .pipe(gulp.dest('./dist'))
-      .pipe(notify({message: "APP: Index Build task completed"}));
+      .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('vendor', [
@@ -62,23 +60,21 @@ gulp.task('vendor-js', function() {
     './node_modules/angular-route/angular-route.js',
     './node_modules/angular-resource/angular-resource.js',
     './node_modules/angular-storage/dist/angular-storage.js',
-    './bower_components/jquery/dist/jquery.js',
-    './bower_components/bootstrap/dist/js/bootstrap.js'
+    './node_modules/jquery/dist/jquery.js',
+    './node_modules/bootstrap/dist/js/bootstrap.js'
   ])
     .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('./dist/js'))
-    .pipe(notify({message: "VENDOR: JS Build task completed"}));
+    .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('vendor-css', function() {
   return gulp.src([
-    './bower_components/bootstrap/dist/css/bootstrap.min.css',
+    './node_modules/bootstrap/dist/css/bootstrap.min.css',
   ]).pipe(concat('vendor.css'))
-  .pipe(gulp.dest('./dist/css'))
-  .pipe(notify({message: "VENDOR: CSS Build task completed"}));
+  .pipe(gulp.dest('./dist/css'));
 });
 gulp.task('vendor-fonts', function() {
   return gulp.src([
-    './bower_components/bootstrap/dist/fonts/*',
+    './node_modules/bootstrap/dist/fonts/*',
   ]).pipe(gulp.dest('./dist/fonts'))
 });
